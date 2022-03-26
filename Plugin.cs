@@ -92,6 +92,12 @@ namespace PlayFirst
                 }
             }
 
+            if (Utils.Scoresaber.IsInReplay())
+            {
+                Logger.log.Debug("In ScoreSaber replay");
+                return;
+            }
+
             // Allow only for Standard
             // Disable for MP: Unsure about pausing behaviour in MP
             // Disable for Campaign: Probably annoying if user habitually leaves this toggled on
