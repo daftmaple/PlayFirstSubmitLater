@@ -56,6 +56,13 @@ namespace PlayFirst
 
         private void BSEvents_gameSceneLoaded()
         {
+            // Disable on ScoreSaber replay
+            if (Utils.Scoresaber.IsInReplay())
+            {
+                Logger.log.Debug("In ScoreSaber replay");
+                return;
+            }
+
             //Logger.log.Debug("In Map");
 
             // Pause Menu state. Always set to false at start of any map.
@@ -90,12 +97,6 @@ namespace PlayFirst
                     Logger.log.Debug("Short map duration");
                     return;
                 }
-            }
-
-            if (Utils.Scoresaber.IsInReplay())
-            {
-                Logger.log.Debug("In ScoreSaber replay");
-                return;
             }
 
             // Allow only for Standard
